@@ -1,6 +1,6 @@
 class Game {
   constructor(){
-
+    
   }
 
   getState(){
@@ -93,14 +93,42 @@ class Game {
     if(player.distance > 3700){
       player.rank = player.rank+1;
       player.updateRank(player.rank);
+      player.plarRank = player.plarRank+1;
+      player.update();
       gameState = 2;
+      
     }
    
     drawSprites();
   }
 
+  textSize=25;
+  textcolor=red;
+
   end(){
     console.log("Game Ended");
-    console.log(player.rank);
+  }
+
+  scoreboard(){
+    var plr1score = database.ref('players/player1');
+    plr1score.on("value",function(data){
+      plr1score = data.val();
+    })
+    var plr2score = database.ref('players/player2');
+    plr2score.on("value",function(data){
+      plr2score = data.val();
+    })
+    var plr3score = database.ref('players/player3');
+    plr3score.on("value",function(data){
+      plr3score = data.val();
+    })
+    var plr4score = database.ref('players/player4');
+    plr4score.on("value",function(data){
+      plr4score = data.val();
+    })
+    text(plr1score.name +" : "+ plr1score.plarRank,600,400);
+    text(plr2score.name +" : "+ plr2score.plarRank,600,400);
+    text(plr3score.name +" : "+ plr3score.plarRank,600,400);
+    text(plr4score.name +" : "+ plr4score.plarRank,600,400);
   }
 }

@@ -4,6 +4,7 @@ var gameState = 0;
 var playerCount;
 var allPlayers;
 var distance = 0;
+var plarRank = 0;
 var database;
 
 var form, player, game;
@@ -40,5 +41,6 @@ function draw(){
   }
   if(gameState === 2){
     game.end();
+    game.scoreboard();
   }
 }
