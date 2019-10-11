@@ -1,6 +1,9 @@
 class Game {
   constructor(){
-    
+    this.rank1 = createElement('h2');
+    this.rank2 = createElement('h2');
+    this.rank3 = createElement('h2');
+    this.rank4 = createElement('h2');
   }
 
   getState(){
@@ -126,9 +129,13 @@ class Game {
     plr4score.on("value",function(data){
       plr4score = data.val();
     })
-    text(plr1score.name +" : "+ plr1score.plarRank,600,400);
-    text(plr2score.name +" : "+ plr2score.plarRank,600,400);
-    text(plr3score.name +" : "+ plr3score.plarRank,600,400);
-    text(plr4score.name +" : "+ plr4score.plarRank,600,400);
+    this.rank1.html(plr1score.name +" : "+ plr1score.plarRank);
+    this.rank1.position(500,800);
+    this.rank2.html(plr2score.name +" : "+ plr2score.plarRank);
+    this.rank2.position(500,700);
+    this.rank3.html(plr3score.name +" : "+ plr3score.plarRank);
+    this.rank3.position(500,600);
+    this.rank4.html(plr4score.name +" : "+ plr4score.plarRank);
+    this.rank4.position(500,500);
   }
 }
